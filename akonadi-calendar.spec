@@ -6,7 +6,7 @@
 #
 Name     : akonadi-calendar
 Version  : 18.08.0
-Release  : 1
+Release  : 2
 URL      : https://download.kde.org/stable/applications/18.08.0/src/akonadi-calendar-18.08.0.tar.xz
 Source0  : https://download.kde.org/stable/applications/18.08.0/src/akonadi-calendar-18.08.0.tar.xz
 Source99 : https://download.kde.org/stable/applications/18.08.0/src/akonadi-calendar-18.08.0.tar.xz.sig
@@ -92,7 +92,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535232351
+export SOURCE_DATE_EPOCH=1535423871
 mkdir clr-build
 pushd clr-build
 %cmake ..
@@ -100,7 +100,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1535232351
+export SOURCE_DATE_EPOCH=1535423871
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/akonadi-calendar
 cp COPYING.LIB %{buildroot}/usr/share/doc/akonadi-calendar/COPYING.LIB
@@ -116,6 +116,8 @@ popd
 %files data
 %defattr(-,root,root,-)
 /usr/share/akonadi/plugins/serializer/akonadi_serializer_kcalcore.desktop
+/usr/share/xdg/akonadi-calendar.categories
+/usr/share/xdg/akonadi-calendar.renamecategories
 
 %files dev
 %defattr(-,root,root,-)
