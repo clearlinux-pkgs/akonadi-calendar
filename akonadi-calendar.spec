@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : akonadi-calendar
-Version  : 19.04.1
-Release  : 8
-URL      : https://download.kde.org/stable/applications/19.04.1/src/akonadi-calendar-19.04.1.tar.xz
-Source0  : https://download.kde.org/stable/applications/19.04.1/src/akonadi-calendar-19.04.1.tar.xz
-Source99 : https://download.kde.org/stable/applications/19.04.1/src/akonadi-calendar-19.04.1.tar.xz.sig
+Version  : 19.04.2
+Release  : 9
+URL      : https://download.kde.org/stable/applications/19.04.2/src/akonadi-calendar-19.04.2.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.04.2/src/akonadi-calendar-19.04.2.tar.xz
+Source99 : https://download.kde.org/stable/applications/19.04.2/src/akonadi-calendar-19.04.2.tar.xz.sig
 Summary  : Akonadi calendar integration
 Group    : Development/Tools
 License  : LGPL-2.1
@@ -20,7 +20,6 @@ Requires: akonadi-calendar-locales = %{version}-%{release}
 BuildRequires : akonadi-contacts-dev
 BuildRequires : akonadi-dev
 BuildRequires : akonadi-mime-dev
-BuildRequires : boost-dev
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : buildreq-qmake
@@ -87,14 +86,14 @@ locales components for the akonadi-calendar package.
 
 
 %prep
-%setup -q -n akonadi-calendar-19.04.1
+%setup -q -n akonadi-calendar-19.04.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1557499081
+export SOURCE_DATE_EPOCH=1559917472
 mkdir -p clr-build
 pushd clr-build
 export AR=gcc-ar
@@ -109,7 +108,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1557499081
+export SOURCE_DATE_EPOCH=1559917472
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/akonadi-calendar
 cp COPYING.LIB %{buildroot}/usr/share/package-licenses/akonadi-calendar/COPYING.LIB
@@ -171,7 +170,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5AkonadiCalendar.so.5
-/usr/lib64/libKF5AkonadiCalendar.so.5.11.1
+/usr/lib64/libKF5AkonadiCalendar.so.5.11.2
 /usr/lib64/qt5/plugins/akonadi_serializer_kcalcore.so
 
 %files license
