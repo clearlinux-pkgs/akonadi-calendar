@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : akonadi-calendar
-Version  : 19.08.2
-Release  : 13
-URL      : https://download.kde.org/stable/applications/19.08.2/src/akonadi-calendar-19.08.2.tar.xz
-Source0  : https://download.kde.org/stable/applications/19.08.2/src/akonadi-calendar-19.08.2.tar.xz
-Source1 : https://download.kde.org/stable/applications/19.08.2/src/akonadi-calendar-19.08.2.tar.xz.sig
+Version  : 19.08.3
+Release  : 14
+URL      : https://download.kde.org/stable/applications/19.08.3/src/akonadi-calendar-19.08.3.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.08.3/src/akonadi-calendar-19.08.3.tar.xz
+Source1 : https://download.kde.org/stable/applications/19.08.3/src/akonadi-calendar-19.08.3.tar.xz.sig
 Summary  : Akonadi calendar integration
 Group    : Development/Tools
 License  : LGPL-2.1
@@ -86,14 +86,14 @@ locales components for the akonadi-calendar package.
 
 
 %prep
-%setup -q -n akonadi-calendar-19.08.2
+%setup -q -n akonadi-calendar-19.08.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1570726494
+export SOURCE_DATE_EPOCH=1573529128
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -110,10 +110,10 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1570726494
+export SOURCE_DATE_EPOCH=1573529128
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/akonadi-calendar
-cp COPYING.LIB %{buildroot}/usr/share/package-licenses/akonadi-calendar/COPYING.LIB
+cp %{_builddir}/akonadi-calendar-19.08.3/COPYING.LIB %{buildroot}/usr/share/package-licenses/akonadi-calendar/9a1929f4700d2407c70b507b3b2aaf6226a9543c
 pushd clr-build
 %make_install
 popd
@@ -172,12 +172,12 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5AkonadiCalendar.so.5
-/usr/lib64/libKF5AkonadiCalendar.so.5.12.2
+/usr/lib64/libKF5AkonadiCalendar.so.5.12.3
 /usr/lib64/qt5/plugins/akonadi_serializer_kcalcore.so
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/akonadi-calendar/COPYING.LIB
+/usr/share/package-licenses/akonadi-calendar/9a1929f4700d2407c70b507b3b2aaf6226a9543c
 
 %files locales -f libakonadi-calendar5-serializer.lang -f libakonadi-calendar5.lang
 %defattr(-,root,root,-)
