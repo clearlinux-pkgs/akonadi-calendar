@@ -6,7 +6,7 @@
 #
 Name     : akonadi-calendar
 Version  : 19.12.0
-Release  : 17
+Release  : 18
 URL      : https://download.kde.org/stable/release-service/19.12.0/src/akonadi-calendar-19.12.0.tar.xz
 Source0  : https://download.kde.org/stable/release-service/19.12.0/src/akonadi-calendar-19.12.0.tar.xz
 Source1  : https://download.kde.org/stable/release-service/19.12.0/src/akonadi-calendar-19.12.0.tar.xz.sig
@@ -20,6 +20,7 @@ Requires: akonadi-calendar-locales = %{version}-%{release}
 BuildRequires : akonadi-contacts-dev
 BuildRequires : akonadi-dev
 BuildRequires : akonadi-mime-dev
+BuildRequires : boost-dev
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : buildreq-qmake
@@ -94,7 +95,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1576599351
+export SOURCE_DATE_EPOCH=1576599692
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -111,7 +112,7 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1576599351
+export SOURCE_DATE_EPOCH=1576599692
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/akonadi-calendar
 cp %{_builddir}/akonadi-calendar-19.12.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/akonadi-calendar/9a1929f4700d2407c70b507b3b2aaf6226a9543c
