@@ -1,4 +1,13 @@
 # This file contains additional build requirements that did not get
 # picked up automatically. One name per line, no whitespace.
-kmailtransport-dev
+akonadi-contacts-dev
+akonadi-dev
+akonadi-mime-dev
+boost-dev
+kcalendarcore-dev
+kcalutils-dev
+kcontacts-dev
 kidentitymanagement-dev
+kmailtransport-dev
+kmime-dev
+kpimtextedit-dev

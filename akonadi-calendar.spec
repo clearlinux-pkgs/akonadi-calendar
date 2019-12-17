@@ -6,7 +6,7 @@
 #
 Name     : akonadi-calendar
 Version  : 19.12.0
-Release  : 18
+Release  : 19
 URL      : https://download.kde.org/stable/release-service/19.12.0/src/akonadi-calendar-19.12.0.tar.xz
 Source0  : https://download.kde.org/stable/release-service/19.12.0/src/akonadi-calendar-19.12.0.tar.xz
 Source1  : https://download.kde.org/stable/release-service/19.12.0/src/akonadi-calendar-19.12.0.tar.xz.sig
@@ -24,7 +24,7 @@ BuildRequires : boost-dev
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : buildreq-qmake
-BuildRequires : kcalcore-dev
+BuildRequires : kcalendarcore-dev
 BuildRequires : kcalutils-dev
 BuildRequires : kcontacts-dev
 BuildRequires : kidentitymanagement-dev
@@ -53,7 +53,6 @@ Group: Development
 Requires: akonadi-calendar-lib = %{version}-%{release}
 Requires: akonadi-calendar-data = %{version}-%{release}
 Provides: akonadi-calendar-devel = %{version}-%{release}
-Requires: akonadi-calendar = %{version}-%{release}
 Requires: akonadi-calendar = %{version}-%{release}
 
 %description dev
@@ -95,10 +94,9 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1576599692
+export SOURCE_DATE_EPOCH=1576611657
 mkdir -p clr-build
 pushd clr-build
-# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -112,7 +110,7 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1576599692
+export SOURCE_DATE_EPOCH=1576611657
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/akonadi-calendar
 cp %{_builddir}/akonadi-calendar-19.12.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/akonadi-calendar/9a1929f4700d2407c70b507b3b2aaf6226a9543c
