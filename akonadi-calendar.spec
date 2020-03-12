@@ -6,7 +6,7 @@
 #
 Name     : akonadi-calendar
 Version  : 19.12.3
-Release  : 22
+Release  : 23
 URL      : https://download.kde.org/stable/release-service/19.12.3/src/akonadi-calendar-19.12.3.tar.xz
 Source0  : https://download.kde.org/stable/release-service/19.12.3/src/akonadi-calendar-19.12.3.tar.xz
 Source1  : https://download.kde.org/stable/release-service/19.12.3/src/akonadi-calendar-19.12.3.tar.xz.sig
