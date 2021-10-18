@@ -6,7 +6,7 @@
 #
 Name     : akonadi-calendar
 Version  : 21.08.2
-Release  : 36
+Release  : 37
 URL      : https://download.kde.org/stable/release-service/21.08.2/src/akonadi-calendar-21.08.2.tar.xz
 Source0  : https://download.kde.org/stable/release-service/21.08.2/src/akonadi-calendar-21.08.2.tar.xz
 Source1  : https://download.kde.org/stable/release-service/21.08.2/src/akonadi-calendar-21.08.2.tar.xz.sig
