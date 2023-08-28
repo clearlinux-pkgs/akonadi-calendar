@@ -6,11 +6,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : akonadi-calendar
-Version  : 23.04.3
-Release  : 60
-URL      : https://download.kde.org/stable/release-service/23.04.3/src/akonadi-calendar-23.04.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/23.04.3/src/akonadi-calendar-23.04.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/23.04.3/src/akonadi-calendar-23.04.3.tar.xz.sig
+Version  : 23.08.0
+Release  : 61
+URL      : https://download.kde.org/stable/release-service/23.08.0/src/akonadi-calendar-23.08.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/23.08.0/src/akonadi-calendar-23.08.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/23.08.0/src/akonadi-calendar-23.08.0.tar.xz.sig
 Summary  : Akonadi calendar integration
 Group    : Development/Tools
 License  : BSD-3-Clause CC0-1.0 LGPL-2.0 LGPL-2.1
@@ -26,15 +26,22 @@ BuildRequires : boost-dev
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : extra-cmake-modules-data
+BuildRequires : gpgme-dev
+BuildRequires : gpgme-extras
 BuildRequires : grantlee-dev
 BuildRequires : grantleetheme-dev
 BuildRequires : kcalendarcore-dev
 BuildRequires : kcalutils-dev
 BuildRequires : kcontacts-dev
 BuildRequires : kidentitymanagement-dev
+BuildRequires : kimap-staticdev
 BuildRequires : kmailtransport-dev
 BuildRequires : kmime-dev
 BuildRequires : kpimtextedit-dev
+BuildRequires : libkdepim-dev
+BuildRequires : libkleo-dev
+BuildRequires : messagelib-dev
+BuildRequires : pimcommon-dev
 # Suppress stripping binaries
 %define __strip /bin/true
 %define debug_package %{nil}
@@ -100,15 +107,15 @@ locales components for the akonadi-calendar package.
 
 
 %prep
-%setup -q -n akonadi-calendar-23.04.3
-cd %{_builddir}/akonadi-calendar-23.04.3
+%setup -q -n akonadi-calendar-23.08.0
+cd %{_builddir}/akonadi-calendar-23.08.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1689000206
+export SOURCE_DATE_EPOCH=1693237007
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -141,7 +148,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1689000206
+export SOURCE_DATE_EPOCH=1693237007
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/akonadi-calendar
 cp %{_builddir}/akonadi-calendar-%{version}/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/akonadi-calendar/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c || :
@@ -196,7 +203,9 @@ popd
 /usr/include/KPim5/AkonadiCalendar/Akonadi/IncidenceChanger
 /usr/include/KPim5/AkonadiCalendar/Akonadi/IncidenceTreeModel
 /usr/include/KPim5/AkonadiCalendar/Akonadi/PublishDialog
+/usr/include/KPim5/AkonadiCalendar/Akonadi/SearchCollectionHelper
 /usr/include/KPim5/AkonadiCalendar/Akonadi/StandardCalendarActionManager
+/usr/include/KPim5/AkonadiCalendar/Akonadi/TodoModel
 /usr/include/KPim5/AkonadiCalendar/Akonadi/TodoPurger
 /usr/include/KPim5/AkonadiCalendar/akonadi-calendar_version.h
 /usr/include/KPim5/AkonadiCalendar/akonadi/akonadi-calendar_export.h
@@ -215,7 +224,9 @@ popd
 /usr/include/KPim5/AkonadiCalendar/akonadi/incidencetreemodel.h
 /usr/include/KPim5/AkonadiCalendar/akonadi/itiphandler.h
 /usr/include/KPim5/AkonadiCalendar/akonadi/publishdialog.h
+/usr/include/KPim5/AkonadiCalendar/akonadi/searchcollectionhelper.h
 /usr/include/KPim5/AkonadiCalendar/akonadi/standardcalendaractionmanager.h
+/usr/include/KPim5/AkonadiCalendar/akonadi/todomodel.h
 /usr/include/KPim5/AkonadiCalendar/akonadi/todopurger.h
 /usr/lib64/cmake/KF5AkonadiCalendar/KF5AkonadiCalendarConfig.cmake
 /usr/lib64/cmake/KF5AkonadiCalendar/KF5AkonadiCalendarConfigVersion.cmake
@@ -230,11 +241,11 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libKPim5AkonadiCalendar.so.5.23.3
+/V3/usr/lib64/libKPim5AkonadiCalendar.so.5.24.0
 /V3/usr/lib64/qt5/plugins/akonadi_serializer_kcalcore.so
 /V3/usr/lib64/qt5/plugins/kf5/org.kde.kcalendarcore.calendars/libakonadicalendarplugin.so
 /usr/lib64/libKPim5AkonadiCalendar.so.5
-/usr/lib64/libKPim5AkonadiCalendar.so.5.23.3
+/usr/lib64/libKPim5AkonadiCalendar.so.5.24.0
 /usr/lib64/qt5/plugins/akonadi_serializer_kcalcore.so
 /usr/lib64/qt5/plugins/kf5/org.kde.kcalendarcore.calendars/libakonadicalendarplugin.so
 
