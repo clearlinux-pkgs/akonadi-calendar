@@ -13,3 +13,6 @@ kidentitymanagement-dev
 kmailtransport-dev
 kmime-dev
 kpimtextedit-dev
+messagelib-dev
+kimap-dev
+libkleo-dev
