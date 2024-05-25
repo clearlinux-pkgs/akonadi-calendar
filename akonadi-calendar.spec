@@ -8,11 +8,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : akonadi-calendar
-Version  : 24.02.2
-Release  : 72
-URL      : https://download.kde.org/stable/release-service/24.02.2/src/akonadi-calendar-24.02.2.tar.xz
-Source0  : https://download.kde.org/stable/release-service/24.02.2/src/akonadi-calendar-24.02.2.tar.xz
-Source1  : https://download.kde.org/stable/release-service/24.02.2/src/akonadi-calendar-24.02.2.tar.xz.sig
+Version  : 24.05.0
+Release  : 73
+URL      : https://download.kde.org/stable/release-service/24.05.0/src/akonadi-calendar-24.05.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/24.05.0/src/akonadi-calendar-24.05.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/24.05.0/src/akonadi-calendar-24.05.0.tar.xz.sig
 Source2  : BB463350D6EF31EF.pkey
 Summary  : Akonadi calendar integration
 Group    : Development/Tools
@@ -121,15 +121,15 @@ chmod 700 .gnupg
 gpg --homedir .gnupg --import %{SOURCE2}
 gpg --homedir .gnupg --status-fd 1 --verify %{SOURCE1} %{SOURCE0} > gpg.status
 grep -E '^\[GNUPG:\] (GOODSIG|EXPKEYSIG) BB463350D6EF31EF' gpg.status
-%setup -q -n akonadi-calendar-24.02.2
-cd %{_builddir}/akonadi-calendar-24.02.2
+%setup -q -n akonadi-calendar-24.05.0
+cd %{_builddir}/akonadi-calendar-24.05.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1713217755
+export SOURCE_DATE_EPOCH=1716610539
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -190,7 +190,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1713217755
+export SOURCE_DATE_EPOCH=1716610539
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/akonadi-calendar
 cp %{_builddir}/akonadi-calendar-%{version}/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/akonadi-calendar/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c || :
@@ -236,6 +236,8 @@ popd
 %files dev
 %defattr(-,root,root,-)
 /usr/include/KPim6/AkonadiCalendar/Akonadi/BlockAlarmsAttribute
+/usr/include/KPim6/AkonadiCalendar/Akonadi/CalFilterPartStatusProxyModel
+/usr/include/KPim6/AkonadiCalendar/Akonadi/CalFilterProxyModel
 /usr/include/KPim6/AkonadiCalendar/Akonadi/CalendarBase
 /usr/include/KPim6/AkonadiCalendar/Akonadi/CalendarClipboard
 /usr/include/KPim6/AkonadiCalendar/Akonadi/CalendarUtils
@@ -261,6 +263,8 @@ popd
 /usr/include/KPim6/AkonadiCalendar/akonadi/calendarclipboard.h
 /usr/include/KPim6/AkonadiCalendar/akonadi/calendarsettings.h
 /usr/include/KPim6/AkonadiCalendar/akonadi/calendarutils.h
+/usr/include/KPim6/AkonadiCalendar/akonadi/calfilterpartstatusproxymodel.h
+/usr/include/KPim6/AkonadiCalendar/akonadi/calfilterproxymodel.h
 /usr/include/KPim6/AkonadiCalendar/akonadi/collectioncalendar.h
 /usr/include/KPim6/AkonadiCalendar/akonadi/etmcalendar.h
 /usr/include/KPim6/AkonadiCalendar/akonadi/fetchjobcalendar.h
@@ -284,11 +288,11 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libKPim6AkonadiCalendar.so.6.0.2
+/V3/usr/lib64/libKPim6AkonadiCalendar.so.6.1.0
 /V3/usr/lib64/qt6/plugins/akonadi_serializer_kcalcore.so
 /V3/usr/lib64/qt6/plugins/kf6/org.kde.kcalendarcore.calendars/libakonadicalendarplugin.so
 /usr/lib64/libKPim6AkonadiCalendar.so.6
-/usr/lib64/libKPim6AkonadiCalendar.so.6.0.2
+/usr/lib64/libKPim6AkonadiCalendar.so.6.1.0
 /usr/lib64/qt6/plugins/akonadi_serializer_kcalcore.so
 /usr/lib64/qt6/plugins/kf6/org.kde.kcalendarcore.calendars/libakonadicalendarplugin.so
 
